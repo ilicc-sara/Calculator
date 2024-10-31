@@ -11,8 +11,8 @@
 
     <div class="container">
       <div class="screen">
-        <div class="second-num"><span class="second">0</span></div>
-        <div class="first-num"><span class="first">0</span></div>
+        <div class="second-num"><span class="second"></span></div>
+        <div class="first-num"><span class="first"></span></div>
       </div>
       <div class="function-cont">
         <button class="btn clear">CLEAR</button>
@@ -20,22 +20,26 @@
       </div>
 
       <div class="operations">
-        <button class="op-btn" data-num="7">7</button>
-        <button class="op-btn" data-num="8">8</button>
-        <button class="op-btn" data-num="9">9</button>
-        <button class="op-btn" data-op="/">/</button>
-        <button class="op-btn" data-num="4">4</button>
-        <button class="op-btn" data-num="5">5</button>
-        <button class="op-btn" data-num="6">6</button>
-        <button class="op-btn" data-op="*">*</button>
-        <button class="op-btn" data-num="1">1</button>
-        <button class="op-btn" data-num="2">2</button>
-        <button class="op-btn" data-num="3">3</button>
-        <button class="op-btn" data-op="-">-</button>
-        <button class="op-btn" data-num=".">.</button>
-        <button class="op-btn" data-num="0">0</button>
-        <button class="op-btn" data-op="=">=</button>
-        <button class="op-btn" data-op="+">+</button>
+        <div class="num-cont">
+          <button class="num-btn" data-num="7">7</button>
+          <button class="num-btn" data-num="8">8</button>
+          <button class="num-btn" data-num="9">9</button>
+          <button class="num-btn" data-num="4">4</button>
+          <button class="num-btn" data-num="5">5</button>
+          <button class="num-btn" data-num="6">6</button>
+          <button class="num-btn" data-num="1">1</button>
+          <button class="num-btn" data-num="2">2</button>
+          <button class="num-btn" data-num="3">3</button>
+          <button class="num-btn" data-num=".">.</button>
+          <button class="num-btn" data-num="0">0</button>
+          <button class="num-btn equals" data-num="=">=</button>
+        </div>
+        <div class="op-cont">
+          <button class="op-btn" data-op="/">/</button>
+          <button class="op-btn" data-op="*">*</button>
+          <button class="op-btn" data-op="-">-</button>
+          <button class="op-btn" data-op="+">+</button>
+        </div>
       </div>
     </div>
   </body>
