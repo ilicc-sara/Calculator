@@ -5,27 +5,26 @@ let firstNumber;
 let secondNumber;
 let operation;
 let result;
-let output;
 
-const add = function (num1, num2) {
-  result = num1 + num2;
-  return result;
-};
+// const add = function (num1, num2) {
+//   result = num1 + num2;
+//   return result;
+// };
 
-const subtract = function (num1, num2) {
-  result = num1 - num2;
-  return result;
-};
+// const subtract = function (num1, num2) {
+//   result = num1 - num2;
+//   return result;
+// };
 
-const multiply = function (num1, num2) {
-  result = num1 * num2;
-  return result;
-};
+// const multiply = function (num1, num2) {
+//   result = num1 * num2;
+//   return result;
+// };
 
-const divide = function (num1, num2) {
-  result = num1 / num2;
-  return result;
-};
+// const divide = function (num1, num2) {
+//   result = num1 / num2;
+//   return result;
+// };
 
 const firstNumberEl = document.querySelector(".first");
 const secondNumberEl = document.querySelector(".second");
@@ -46,7 +45,7 @@ numBtns.forEach(function (num, i) {
 opBtns.forEach(function (op, i) {
   op.addEventListener("click", function (e) {
     operation = e.target.dataset.op;
-    secondNumber = firstNumber;
+    secondNumber = firstNumber + operation;
     secondNumberEl.textContent = secondNumber;
     firstNumberEl.textContent = "";
 
@@ -55,9 +54,40 @@ opBtns.forEach(function (op, i) {
   });
 });
 
-// getResult.addEventListener("click", function () {
-//   if (secondNumber.includes("+")) {
-//     output = Number(firstNumber) + Number(secondNumber);
-//     firstNumberEl.textContent = output;
-//   }
-// });
+getResult.addEventListener("click", function () {
+  if (secondNumber.includes("+")) {
+    result =
+      Number(secondNumberEl.textContent.replace("+", " ")) +
+      Number(firstNumberEl.textContent);
+    console.log(result);
+    firstNumberEl.textContent = result;
+    secondNumberEl.textContent = " ";
+  }
+
+  if (secondNumber.includes("-")) {
+    result =
+      Number(secondNumberEl.textContent.replace("-", " ")) -
+      Number(firstNumberEl.textContent);
+    console.log(result);
+    firstNumberEl.textContent = result;
+    secondNumberEl.textContent = " ";
+  }
+
+  if (secondNumber.includes("*")) {
+    result =
+      Number(secondNumberEl.textContent.replace("*", " ")) *
+      Number(firstNumberEl.textContent);
+    console.log(result);
+    firstNumberEl.textContent = result;
+    secondNumberEl.textContent = " ";
+  }
+
+  if (secondNumber.includes("/")) {
+    result =
+      Number(secondNumberEl.textContent.replace("/", " ")) /
+      Number(firstNumberEl.textContent);
+    console.log(result);
+    firstNumberEl.textContent = result;
+    secondNumberEl.textContent = " ";
+  }
+});
