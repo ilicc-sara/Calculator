@@ -34,6 +34,9 @@ const opBtns = document.querySelectorAll(".op-btn");
 
 const getResult = document.querySelector(".equals");
 
+const clearBtn = document.querySelector(".clear");
+const deleteBtn = document.querySelector(".delete");
+
 numBtns.forEach(function (num, i) {
   num.addEventListener("click", function (e) {
     if (e.target.dataset.num === "=") return;
@@ -90,4 +93,15 @@ getResult.addEventListener("click", function () {
     firstNumberEl.textContent = result;
     secondNumberEl.textContent = " ";
   }
+});
+
+clearBtn.addEventListener("click", function () {
+  firstNumber = 0;
+  secondNumber = 0;
+  firstNumberEl.textContent = " ";
+  secondNumberEl.textContent = " ";
+});
+
+deleteBtn.addEventListener("click", function () {
+  firstNumberEl.textContent = firstNumberEl.textContent.slice(0, -1);
 });
