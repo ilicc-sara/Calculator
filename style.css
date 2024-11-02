@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 body {
-  background-color: rgb(20, 49, 20);
+  background-color: rgb(13, 30, 13);
+  background: linear-gradient(to right, rgb(13, 30, 13), rgb(27, 49, 27));
 }
 
 .container {
@@ -14,8 +15,9 @@ body {
   grid-template-rows: 1fr;
   justify-content: center;
   align-content: center;
-  background-color: rgb(80, 16, 25);
+  background-color: rgb(48, 48, 48);
   padding: 20px 0;
+  border-radius: 10px;
 }
 
 .screen {
@@ -27,7 +29,7 @@ body {
 .second-num {
   width: 100%;
   height: 35px;
-  background-color: rgb(33, 50, 60);
+  background-color: rgb(166, 196, 179);
   position: relative;
 }
 
@@ -41,7 +43,7 @@ body {
 .first-num {
   width: 100%;
   height: 65px;
-  background-color: rgb(81, 57, 57);
+  background-color: rgb(204, 239, 219);
   position: relative;
 }
 
@@ -64,6 +66,19 @@ body {
 
 .btn {
   height: 65px;
+  background-color: rgb(97, 9, 82);
+  color: wheat;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px, solid black;
+}
+
+.clear {
+  background-color: rgb(8, 65, 8);
+}
+
+.delete {
+  background-color: rgb(97, 13, 13);
 }
 
 .operations {
@@ -106,4 +121,7 @@ body {
   height: 70px;
   background-color: black;
   color: wheat;
+  font-size: 28px;
+  border-radius: 5px;
+  border: none;
 }

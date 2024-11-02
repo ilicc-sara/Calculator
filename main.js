@@ -39,7 +39,9 @@ const deleteBtn = document.querySelector(".delete");
 
 numBtns.forEach(function (num, i) {
   num.addEventListener("click", function (e) {
+    // dodati posebnu klasu na = , maknuti ovaj if
     if (e.target.dataset.num === "=") return;
+    // firstNumber.textContent = e.target.dataset.num;
     firstNumber = firstNumberEl.textContent + e.target.dataset.num;
     firstNumberEl.textContent = firstNumber;
   });
@@ -52,12 +54,14 @@ opBtns.forEach(function (op, i) {
     secondNumberEl.textContent = secondNumber;
     firstNumberEl.textContent = "";
 
-    console.log(firstNumber);
-    console.log(secondNumber);
+    console.log("firstNumber: ", firstNumber);
+    console.log("secondNumber:", secondNumber);
+    console.log("operation:", operation);
   });
 });
 
 getResult.addEventListener("click", function () {
+  console.log("operation in getResult:", operation);
   if (secondNumber.includes("+")) {
     result =
       Number(secondNumberEl.textContent.replace("+", " ")) +
