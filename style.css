@@ -116,7 +116,9 @@ body {
 }
 
 .op-btn,
-.num-btn {
+.num-btn,
+/* .button, */
+.equals {
   width: 70px;
   height: 70px;
   background-color: black;
