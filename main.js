@@ -54,57 +54,68 @@ numBtns.forEach(function (num, i) {
   });
 });
 
+const calculate = function (a, b, operation) {
+  if (operation === "+") result = b + a;
+  if (operation === "-") result = b - a;
+  if (operation === "*") result = b * a;
+  if (operation === "/") result = b / a;
+  return result;
+};
+
+// console.log(calculate(5, 3, "+"));
+// console.log(calculate(5, 3, "-"));
+// console.log(calculate(5, 3, "*"));
+// console.log(calculate(5, 3, "/"));
+
+let clicks = 0;
 opBtns.forEach(function (op, i) {
   op.addEventListener("click", function (e) {
-    operation = e.target.dataset.op;
+    clicks++;
+    console.log(clicks);
+    // operation = e.target.dataset.op;
 
-    if (secondNumber && firstNumber && operation === "+") {
-      firstNumber = firstNumber + secondNumber;
-      secondNumberEl.textContent = firstNumber;
+    if (clicks === 1) {
+      operation = e.currentTarget.dataset.op;
+      secondNumber = firstNumber;
+      firstNumber = " ";
+
+      secondNumberEl.textContent = secondNumber + operation;
+      firstNumberEl.textContent = firstNumber;
+      console.log("firstNumber: ", firstNumber);
+      console.log("secondNumber:", secondNumber);
+      console.log("operation:", operation);
+    } else if (clicks > 1) {
+      secondNumber = calculate(
+        Number(firstNumber),
+        Number(secondNumber),
+        operation
+      );
+      firstNumber = " ";
+      firstNumberEl.textContent = firstNumber;
+      secondNumberEl.textContent = secondNumber + operation;
     }
 
-    if (secondNumber && firstNumber && operation === "-") {
-      firstNumber = firstNumber - secondNumber;
-      secondNumberEl.textContent = firstNumber;
-    }
-
-    if (secondNumber && firstNumber && operation === "*") {
-      firstNumber = firstNumber * secondNumber;
-      secondNumberEl.textContent = firstNumber;
-    }
-
-    if (secondNumber && firstNumber && operation === "/") {
-      firstNumber = firstNumber / secondNumber;
-      secondNumberEl.textContent = firstNumber;
-    }
-
-    console.log("firstNumber: ", firstNumber);
-    console.log("secondNumber:", secondNumber);
-    console.log("operation:", operation);
+    // if (!firstNumber === " ") {
+    //   operation = e.currentTarget.dataset.op;
+    // console.log("nova operacija", operation);
+    // operation = e.currentTarget.dataset.op;
+    // secondNumber = calculate(
+    //   Number(firstNumber),
+    //   Number(secondNumber),
+    //   operation
+    // );
+    // secondNumberEl.textContent = String(secondNumber) + operation;
+    // firstNumber = " ";
+    // firstNumberEl.textContent = firstNumber;
 
     equals.addEventListener("click", function () {
-      console.log("operation equals:", operation);
-      if (secondNumber && firstNumber && operation === "+") {
-        firstNumber = firstNumber + secondNumber;
-        firstNumberEl.textContent = firstNumber;
-        secondNumberEl.textContent = " ";
-      }
-
-      if (secondNumber && firstNumber && operation === "-") {
-        firstNumber = firstNumber - secondNumber;
-        firstNumberEl.textContent = firstNumber;
-        secondNumberEl.textContent = " ";
-      }
-
-      if (secondNumber && firstNumber && operation === "*") {
-        firstNumber = firstNumber * secondNumber;
-        firstNumberEl.textContent = firstNumber;
-        secondNumberEl.textContent = " ";
-      }
-
-      if (secondNumber && firstNumber && operation === "/") {
-        firstNumber = firstNumber / secondNumber;
-        firstNumberEl.textContent = firstNumber;
+      if (secondNumber && firstNumber && operation) {
+        result = calculate(
+          Number(firstNumber),
+          Number(secondNumber),
+          operation
+        );
+        firstNumberEl.textContent = result;
         secondNumberEl.textContent = " ";
       }
     });
@@ -112,8 +123,8 @@ opBtns.forEach(function (op, i) {
 });
 
 clearBtn.addEventListener("click", function () {
-  firstNumber = 0;
-  secondNumber = 0;
+  firstNumber = " ";
+  secondNumber = " ";
   firstNumberEl.textContent = " ";
   secondNumberEl.textContent = " ";
 });
@@ -121,3 +132,54 @@ clearBtn.addEventListener("click", function () {
 deleteBtn.addEventListener("click", function () {
   firstNumberEl.textContent = firstNumberEl.textContent.slice(0, -1);
 });
+
+// if (secondNumber && firstNumber && operation === "+") {
+//   firstNumber = firstNumber + secondNumber;
+//   secondNumberEl.textContent = firstNumber;
+// }
+
+// if (secondNumber && firstNumber && operation === "-") {
+//   firstNumber = firstNumber - secondNumber;
+//   secondNumberEl.textContent = firstNumber;
+// }
+
+// if (secondNumber && firstNumber && operation === "*") {
+//   firstNumber = firstNumber * secondNumber;
+//   secondNumberEl.textContent = firstNumber;
+// }
+
+// if (secondNumber && firstNumber && operation === "/") {
+//   firstNumber = firstNumber / secondNumber;
+//   secondNumberEl.textContent = firstNumber;
+// }
+
+// console.log("firstNumber: ", firstNumber);
+// console.log("secondNumber:", secondNumber);
+// console.log("operation:", operation);
+
+// equals.addEventListener("click", function () {
+//   console.log("operation equals:", operation);
+//   if (secondNumber && firstNumber && operation === "+") {
+//     firstNumber = firstNumber + secondNumber;
+//     firstNumberEl.textContent = firstNumber;
+//     secondNumberEl.textContent = " ";
+//   }
+
+//   if (secondNumber && firstNumber && operation === "-") {
+//     firstNumber = firstNumber - secondNumber;
+//     firstNumberEl.textContent = firstNumber;
+//     secondNumberEl.textContent = " ";
+//   }
+
+//   if (secondNumber && firstNumber && operation === "*") {
+//     firstNumber = firstNumber * secondNumber;
+//     firstNumberEl.textContent = firstNumber;
+//     secondNumberEl.textContent = " ";
+//   }
+
+//   if (secondNumber && firstNumber && operation === "/") {
+//     firstNumber = firstNumber / secondNumber;
+//     firstNumberEl.textContent = firstNumber;
+//     secondNumberEl.textContent = " ";
+//   }
+// });
