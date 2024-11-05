@@ -1,8 +1,8 @@
 "use strict";
 import "./style.css";
 
-let firstNumber = " ";
-let secondNumber = " ";
+let firstNumber = "";
+let secondNumber;
 let operation;
 let result;
 // let a = 10;
@@ -67,45 +67,39 @@ const calculate = function (a, b, operation) {
 // console.log(calculate(5, 3, "*"));
 // console.log(calculate(5, 3, "/"));
 
-let clicks = 0;
+// za calculate f
+// kad se ona poziva imacu 1. 2. i op
+// izracunaj i vrati rezultat
+
 opBtns.forEach(function (op, i) {
   op.addEventListener("click", function (e) {
-    clicks++;
-    console.log(clicks);
-    // operation = e.target.dataset.op;
-
-    if (clicks === 1) {
-      operation = e.currentTarget.dataset.op;
-      secondNumber = firstNumber;
-      firstNumber = " ";
-
-      secondNumberEl.textContent = secondNumber + operation;
-      firstNumberEl.textContent = firstNumber;
-      console.log("firstNumber: ", firstNumber);
-      console.log("secondNumber:", secondNumber);
-      console.log("operation:", operation);
-    } else if (clicks > 1) {
-      secondNumber = calculate(
+    if (firstNumber === "") return;
+    if (operation && secondNumber) {
+      firstNumber = calculate(
         Number(firstNumber),
         Number(secondNumber),
         operation
       );
-      firstNumber = " ";
-      firstNumberEl.textContent = firstNumber;
-      secondNumberEl.textContent = secondNumber + operation;
+      secondNumber = "";
+      operation = "";
+    }
+    secondNumber = firstNumber;
+    firstNumber = "";
+    operation = e.target.textContent;
+    if (firstNumber === "") {
+      secondNumberEl.textContent = `${secondNumber}${operation}`;
     }
 
-    // if (!firstNumber === " ") {
-    //   operation = e.currentTarget.dataset.op;
-    // console.log("nova operacija", operation);
-    // operation = e.currentTarget.dataset.op;
-    // secondNumber = calculate(
-    //   Number(firstNumber),
-    //   Number(secondNumber),
-    //   operation
-    // );
-    // secondNumberEl.textContent = String(secondNumber) + operation;
-    // firstNumber = " ";
+    if (secondNumber === "") {
+      secondNumberEl.textContent = "";
+    }
+    firstNumberEl.textContent = firstNumber;
+    console.log("first number:", firstNumber);
+    console.log("second number:", secondNumber);
+    console.log("operation:", operation);
+    console.log("END");
+
+    // secondNumberEl.textContent = secondNumber + operation;
     // firstNumberEl.textContent = firstNumber;
 
     equals.addEventListener("click", function () {
@@ -115,18 +109,19 @@ opBtns.forEach(function (op, i) {
           Number(secondNumber),
           operation
         );
-        firstNumberEl.textContent = result;
-        secondNumberEl.textContent = " ";
+        firstNumber = result;
+        firstNumberEl.textContent = firstNumber;
+        secondNumberEl.textContent = "";
       }
     });
   });
 });
 
 clearBtn.addEventListener("click", function () {
-  firstNumber = " ";
-  secondNumber = " ";
-  firstNumberEl.textContent = " ";
-  secondNumberEl.textContent = " ";
+  firstNumber = "";
+  secondNumber = "";
+  firstNumberEl.textContent = "";
+  secondNumberEl.textContent = "";
 });
 
 deleteBtn.addEventListener("click", function () {
