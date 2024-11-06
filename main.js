@@ -109,8 +109,8 @@ opBtns.forEach(function (op, i) {
           Number(secondNumber),
           operation
         );
-        firstNumber = result;
-        firstNumberEl.textContent = firstNumber;
+        // firstNumber = result;
+        firstNumberEl.textContent = result; //firstNumber;
         secondNumberEl.textContent = "";
       }
     });

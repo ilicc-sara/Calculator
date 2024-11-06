@@ -3,9 +3,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 body {
-  background-color: rgb(13, 30, 13);
-  background: linear-gradient(to right, rgb(13, 30, 13), rgb(27, 49, 27));
+  background-color: rgb(30, 47, 30);
+  background: linear-gradient(to right, rgb(25, 50, 25), rgb(59, 106, 59));
 }
 
 .container {
@@ -73,6 +74,10 @@ body {
   border: 2px, solid black;
 }
 
+.btn:hover {
+  cursor: pointer;
+}
+
 .clear {
   background-color: rgb(8, 65, 8);
 }
@@ -126,4 +131,12 @@ body {
   font-size: 28px;
   border-radius: 5px;
   border: none;
+}
+
+.op-btn:hover,
+.num-btn:hover,
+/* .button, */
+.equals :hover {
+  cursor: pointer;
+  /* opacity: 0; */
 }
