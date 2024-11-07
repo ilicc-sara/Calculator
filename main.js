@@ -13,28 +13,6 @@ let result;
 // b = a  // 10
 // a = " " // prazno
 // operation = +
-//
-// let number;
-
-// const add = function (num1, num2) {
-//   result = num1 + num2;
-//   return result;
-// };
-
-// const subtract = function (num1, num2) {
-//   result = num1 - num2;
-//   return result;
-// };
-
-// const multiply = function (num1, num2) {
-//   result = num1 * num2;
-//   return result;
-// };
-
-// const divide = function (num1, num2) {
-//   result = num1 / num2;
-//   return result;
-// };
 
 const firstNumberEl = document.querySelector(".first");
 const secondNumberEl = document.querySelector(".second");
@@ -49,6 +27,8 @@ const deleteBtn = document.querySelector(".delete");
 
 numBtns.forEach(function (num, i) {
   num.addEventListener("click", function (e) {
+    if (e.target.dataset.num === "." && firstNumber === "") return;
+    if (e.target.dataset.num === "." && firstNumber.includes(".")) return;
     firstNumber += e.target.dataset.num;
     firstNumberEl.textContent = firstNumber;
   });
@@ -80,8 +60,13 @@ opBtns.forEach(function (op, i) {
         Number(secondNumber),
         operation
       );
+
       secondNumber = "";
       operation = "";
+
+      // if (firstNumber === 0) {
+      //   alert(`Can't divide by '0'`);
+      // }
     }
     secondNumber = firstNumber;
     firstNumber = "";
@@ -98,9 +83,6 @@ opBtns.forEach(function (op, i) {
     console.log("second number:", secondNumber);
     console.log("operation:", operation);
     console.log("END");
-
-    // secondNumberEl.textContent = secondNumber + operation;
-    // firstNumberEl.textContent = firstNumber;
 
     equals.addEventListener("click", function () {
       if (secondNumber && firstNumber && operation) {
@@ -125,56 +107,6 @@ clearBtn.addEventListener("click", function () {
 });
 
 deleteBtn.addEventListener("click", function () {
-  firstNumberEl.textContent = firstNumberEl.textContent.slice(0, -1);
+  firstNumber = firstNumber.slice(0, -1);
+  firstNumberEl.textContent = firstNumber;
 });
-
-// if (secondNumber && firstNumber && operation === "+") {
-//   firstNumber = firstNumber + secondNumber;
-//   secondNumberEl.textContent = firstNumber;
-// }
-
-// if (secondNumber && firstNumber && operation === "-") {
-//   firstNumber = firstNumber - secondNumber;
-//   secondNumberEl.textContent = firstNumber;
-// }
-
-// if (secondNumber && firstNumber && operation === "*") {
-//   firstNumber = firstNumber * secondNumber;
-//   secondNumberEl.textContent = firstNumber;
-// }
-
-// if (secondNumber && firstNumber && operation === "/") {
-//   firstNumber = firstNumber / secondNumber;
-//   secondNumberEl.textContent = firstNumber;
-// }
-
-// console.log("firstNumber: ", firstNumber);
-// console.log("secondNumber:", secondNumber);
-// console.log("operation:", operation);
-
-// equals.addEventListener("click", function () {
-//   console.log("operation equals:", operation);
-//   if (secondNumber && firstNumber && operation === "+") {
-//     firstNumber = firstNumber + secondNumber;
-//     firstNumberEl.textContent = firstNumber;
-//     secondNumberEl.textContent = " ";
-//   }
-
-//   if (secondNumber && firstNumber && operation === "-") {
-//     firstNumber = firstNumber - secondNumber;
-//     firstNumberEl.textContent = firstNumber;
-//     secondNumberEl.textContent = " ";
-//   }
-
-//   if (secondNumber && firstNumber && operation === "*") {
-//     firstNumber = firstNumber * secondNumber;
-//     firstNumberEl.textContent = firstNumber;
-//     secondNumberEl.textContent = " ";
-//   }
-
-//   if (secondNumber && firstNumber && operation === "/") {
-//     firstNumber = firstNumber / secondNumber;
-//     firstNumberEl.textContent = firstNumber;
-//     secondNumberEl.textContent = " ";
-//   }
-// });
