@@ -5,16 +5,8 @@ let firstNumber = "";
 let secondNumber;
 let operation;
 let result;
-// let a = 10;
-// let b;
-// let operation
-// kliknula sam +
 
-// b = a  // 10
-// a = " " // prazno
-// operation = +
-
-console.log(Boolean(8 / 0));
+console.log(Boolean(Infinity));
 
 const firstNumberEl = document.querySelector(".first");
 const secondNumberEl = document.querySelector(".second");
@@ -36,6 +28,13 @@ numBtns.forEach(function (num, i) {
   });
 });
 
+const clearFunction = function () {
+  firstNumber = "";
+  secondNumber = "";
+  firstNumberEl.textContent = "";
+  secondNumberEl.textContent = "";
+};
+
 const calculate = function (a, b, operation) {
   if (operation === "+") result = b + a;
   if (operation === "-") result = b - a;
@@ -43,15 +42,6 @@ const calculate = function (a, b, operation) {
   if (operation === "/") result = b / a;
   return result;
 };
-
-// console.log(calculate(5, 3, "+"));
-// console.log(calculate(5, 3, "-"));
-// console.log(calculate(5, 3, "*"));
-// console.log(calculate(5, 3, "/"));
-
-// za calculate f
-// kad se ona poziva imacu 1. 2. i op
-// izracunaj i vrati rezultat
 
 opBtns.forEach(function (op, i) {
   op.addEventListener("click", function (e) {
@@ -65,9 +55,9 @@ opBtns.forEach(function (op, i) {
         Number(secondNumber),
         operation
       );
-
       secondNumber = "";
       operation = "";
+      if (firstNumber === Infinity) clearFunction();
     }
     secondNumber = firstNumber;
     firstNumber = "";
@@ -89,6 +79,7 @@ opBtns.forEach(function (op, i) {
       if (secondNumber && firstNumber && operation) {
         if (firstNumber === "0" && operation === "/") {
           alert(`Can't divide by '0'`);
+          // firstNumber = "";
         }
         result = calculate(
           Number(firstNumber),
@@ -98,17 +89,11 @@ opBtns.forEach(function (op, i) {
         // firstNumber = result;
         firstNumberEl.textContent = result; //firstNumber;
         secondNumberEl.textContent = "";
+        if (result === Infinity) clearFunction();
       }
     });
   });
 });
-
-const clearFunction = function () {
-  firstNumber = "";
-  secondNumber = "";
-  firstNumberEl.textContent = "";
-  secondNumberEl.textContent = "";
-};
 
 clearBtn.addEventListener("click", clearFunction);
 

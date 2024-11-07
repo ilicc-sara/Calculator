@@ -25,6 +25,7 @@ body {
   width: 375px;
   height: 100px;
   background-color: rgb(22, 31, 22);
+  border-radius: 8px;
 }
 
 .second-num {
@@ -32,6 +33,8 @@ body {
   height: 35px;
   background-color: rgb(166, 196, 179);
   position: relative;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .second {
@@ -46,6 +49,8 @@ body {
   height: 65px;
   background-color: rgb(204, 239, 219);
   position: relative;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .first {
@@ -107,7 +112,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 4 (1fr);
-  column-gap: 35px;
+  column-gap: 16px;
   place-items: center;
   justify-content: center;
   row-gap: 10px;
@@ -124,8 +129,8 @@ body {
 .num-btn,
 /* .button, */
 .equals {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   background-color: black;
   color: wheat;
   font-size: 28px;
