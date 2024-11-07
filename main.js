@@ -14,6 +14,8 @@ let result;
 // a = " " // prazno
 // operation = +
 
+console.log(Boolean(8 / 0));
+
 const firstNumberEl = document.querySelector(".first");
 const secondNumberEl = document.querySelector(".second");
 
@@ -78,10 +80,10 @@ opBtns.forEach(function (op, i) {
       secondNumberEl.textContent = "";
     }
     firstNumberEl.textContent = firstNumber;
-    console.log("first number:", firstNumber);
-    console.log("second number:", secondNumber);
-    console.log("operation:", operation);
-    console.log("END");
+    // console.log("first number:", firstNumber);
+    // console.log("second number:", secondNumber);
+    // console.log("operation:", operation);
+    // console.log("END");
 
     equals.addEventListener("click", function () {
       if (secondNumber && firstNumber && operation) {
@@ -101,12 +103,14 @@ opBtns.forEach(function (op, i) {
   });
 });
 
-clearBtn.addEventListener("click", function () {
+const clearFunction = function () {
   firstNumber = "";
   secondNumber = "";
   firstNumberEl.textContent = "";
   secondNumberEl.textContent = "";
-});
+};
+
+clearBtn.addEventListener("click", clearFunction);
 
 deleteBtn.addEventListener("click", function () {
   firstNumber = firstNumber.slice(0, -1);
