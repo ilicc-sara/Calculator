@@ -55,6 +55,9 @@ opBtns.forEach(function (op, i) {
   op.addEventListener("click", function (e) {
     if (firstNumber === "") return;
     if (operation && secondNumber) {
+      if (firstNumber === "0" && operation === "/") {
+        alert(`Can't divide by '0'`);
+      }
       firstNumber = calculate(
         Number(firstNumber),
         Number(secondNumber),
@@ -63,10 +66,6 @@ opBtns.forEach(function (op, i) {
 
       secondNumber = "";
       operation = "";
-
-      // if (firstNumber === 0) {
-      //   alert(`Can't divide by '0'`);
-      // }
     }
     secondNumber = firstNumber;
     firstNumber = "";
@@ -86,6 +85,9 @@ opBtns.forEach(function (op, i) {
 
     equals.addEventListener("click", function () {
       if (secondNumber && firstNumber && operation) {
+        if (firstNumber === "0" && operation === "/") {
+          alert(`Can't divide by '0'`);
+        }
         result = calculate(
           Number(firstNumber),
           Number(secondNumber),
